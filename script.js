@@ -133,7 +133,7 @@ const shuffleBtn = document.getElementById('shuffle-coupons');
 const addCouponBtn = document.getElementById('add-coupon');
 
 let coupons = [
-  {hero:'🇺🇸', title:"Cap's Day Off Mission", desc:"Redeem to skip all chores for one day.", code:"CAP-FREEDOM-DAY"},
+  {hero:'🇺🇸', title:"Cap's Day Off Mission", desc:"I'll drive to one spot hehe.", code:"CAP-FREEDOM-DAY"},
   {hero:'💚', title:"Hulk Smash Hunger", desc:"One free meal of your choice.", code:"HULK-FEED-ME"},
   {hero:'🕷️', title:"Web of Comfort", desc:"Unlimited hugs + cuddle pass.", code:"SPIDEY-HUGS"},
   {hero:'🤖', title:"Stark Industry VIP Pass", desc:"You pick what we do for a day (budget friendly again.", code:"IRON-TECH-UP"},
