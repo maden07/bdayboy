@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Are We Really Strangers?</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .q-wrap{max-width:750px;margin:32px auto;padding:20px;border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid rgba(255,255,255,.08)}
+    .q-title{font-family:'Bangers', cursive; color:var(--accent2); font-size:34px; margin:0 0 8px}
+    .q-card{background:#0c1526;border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; font-size:18px; line-height:1.6}
+    .q-actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+    .pill{display:inline-block; font-size:12px; padding:6px 10px; border-radius:999px; background:#1c2537; border:1px solid rgba(255,255,255,.08); color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Marvel Adventure Hub</h1>
+      <nav class="nav">
+        <a class="nav-btn" href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="q-wrap">
+      <h2 class="q-title">Are We Really Strangers? 💬</h2>
+      <p class="pill">level: mix of light & deeper prompts</p>
+
+      <div id="q-card" class="q-card">Click “New Question” to start.</div>
+
+      <div class="q-actions">
+        <button id="btn-next" class="cta">New Question</button>
+        <button id="btn-light" class="cta ghost">Light</button>
+        <button id="btn-deep" class="cta ghost">Deep</button>
+        <button id="btn-spicy" class="cta ghost">Spicy 🔥</button>
+        <button id="btn-save" class="cta secondary">Save This One</button>
+      </div>
+
+      <p id="saved" class="result-msg" style="display:none;"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>Take turns answering. Listen first. Be kind. 💖</p></div>
+  </footer>
+
+  <script>
+    const light = [
+      "What’s a tiny thing that made your day recently?",
+      "What snack is your personality and why?",
+      "Song that instantly puts you in a good mood?",
+      "What movie line lives in your head rent-free?",
+      "What was your first fandom crush?",
+      "What’s your perfect lazy Sunday?",
+      "What’s a smell that makes you nostalgic?",
+      "What’s your go-to comfort show and why?",
+      "What superpower would genuinely fit your daily life?",
+      "What’s a tradition you want us to start?"
+    ];
+
+    const deep = [
+      "What’s something you’ve outgrown that you’re proud of?",
+      "When do you feel most cared for by me?",
+      "What’s a fear you rarely say out loud?",
+      "What do you wish people understood about you sooner?",
+      "What boundary has made your life better?",
+      "What’s a lesson a past relationship taught you?",
+      "When was the last time you felt truly seen?",
+      "What does ‘home’ mean to you right now?",
+      "What’s a risk you want to take this year?",
+      "How can I love you better on hard days?"
+    ];
+    const spicy = [
+  "If we were alone with no interruptions, what’s the first thing you’d do to me?",
+  "Describe your favorite memory of us that’s not safe for work 😉",
+  "What’s one fantasy you haven’t told me yet?",
+  "If you could kiss me anywhere right now, where would it be?",
+  "Which outfit of mine turns you on the most?",
+  "What’s your favorite part of my body to touch?",
+  "If we were in public and you could whisper anything to me, what would it be?",
+  "What’s a place you’ve always wanted to do it but haven’t yet?",
+  "If I gave you 5 uninterrupted minutes with me right now, what would happen?",
+  "Which superhero do you think we’d roleplay best as in bed?"
+];
+
+    let pool = [...light, ...deep, ...spicy];
+
+    function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+    function show(q){ document.getElementById("q-card").textContent = q; }
+
+    function next(){ show(pick(pool)); }
+    document.getElementById("btn-next").addEventListener("click", next);
+    document.getElementById("btn-light").addEventListener("click", ()=>{ pool = [...light]; next(); });
+    document.getElementById("btn-deep").addEventListener("click", ()=>{ pool = [...deep]; next(); });
+    document.getElementById("btn-spicy").addEventListener("click", ()=>{
+  pool = [...spicy];
+  next();
+});
+
+    document.getElementById("btn-save").addEventListener("click", ()=>{
+      const q = document.getElementById("q-card").textContent;
+      navigator.clipboard.writeText(q).then(()=>{
+        const s = document.getElementById("saved");
+        s.textContent = "Saved to clipboard. Ask this one tonight. ✨";
+        s.style.display = "block";
+        setTimeout(()=> s.style.display = "none", 1500);
+      });
+    });
+
+    // start with a random one
+    next();
+  </script>
+</body>
+</html>
