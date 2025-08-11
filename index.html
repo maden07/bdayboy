@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>David's Adventure Hub 💥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="confetti-container"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">David's Adventure Hub</h1>
+      <nav class="nav">
+        <button class="nav-btn" data-screen="home">Home</button>
+        <button class="nav-btn" data-screen="trivia">Hero Trivia</button>
+        <button class="nav-btn" data-screen="wheel">Mission Wheel</button>
+        <button class="nav-btn" data-screen="coupons">Hero Coupons</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="hero-text">
+          <h2>Choose your mission, hero! 🦸‍♂️</h2>
+          <p>Welcome to your interactive birthday hub — packed with superhero vibes, cute surprises, and games made with love by yours truly hehe.</p>
+          <ul class="features">
+            <li>✨ Comic book aesthetic</li>
+            <li>🎉 Confetti celebrations</li>
+            <li>📱 Mobile-friendly</li>
+            <li>💖 Personalized messages</li>
+          </ul>
+          <div class="cta-row">
+            <button class="cta" data-screen="trivia">Start Trivia</button>
+            <button class="cta secondary" data-screen="wheel">Spin the Wheel</button>
+            <button class="cta ghost" data-screen="coupons">Open Coupons</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="burst">💥</div>
+          <div class="pow">POW!</div>
+          <div class="bam">BAM!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRIVIA -->
+    <section id="trivia" class="screen">
+      <div class="panel">
+        <h3 class="panel-title">Hero Trivia Challenge</h3>
+        <p class="panel-sub">10 Marvel questions. Score points. Unlock a sweet note at the end.</p>
+        <div id="trivia-card" class="card">
+          <div class="q-meta">
+            <span id="q-count">Question 1/10</span>
+            <span id="q-score">Score: 0</span>
+          </div>
+          <h4 id="q-text" class="q-text">Loading…</h4>
+          <div id="choices" class="choices"></div>
+          <div class="actions">
+            <button id="next-btn" class="cta" disabled>Next</button>
+            <button id="restart-trivia" class="cta ghost">Restart</button>
+          </div>
+          <p id="result-msg" class="result-msg"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEEL -->
+    <section id="wheel" class="screen">
+      <div class="panel">
+        <h3 class="panel-title">Mission Wheel</h3>
+        <p class="panel-sub">Spin for romantic rewards & date ideas. Good luck, hero!</p>
+        <div class="wheel-wrap">
+          <div id="wheel-needle">▼</div>
+          <div id="wheel-board"></div>
+        </div>
+        <div class="actions center">
+          <button id="spin-btn" class="cta">Spin!</button>
+          <button id="wheel-reset" class="cta ghost">Reset</button>
+        </div>
+        <p id="wheel-result" class="result-msg center"></p>
+      </div>
+    </section>
+
+    <!-- COUPONS -->
+    <section id="coupons" class="screen">
+      <div class="panel">
+        <h3 class="panel-title">Hero Coupons</h3>
+        <p class="panel-sub">Click a coupon to copy its code. Redeemable any time. 💘</p>
+        <div id="coupon-grid" class="coupon-grid"></div>
+        <div class="actions">
+          <button id="shuffle-coupons" class="cta">Shuffle</button>
+          <button id="add-coupon" class="cta ghost">Add Custom Coupon</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Made with 💖, popcorn, and superhero hype.</p>
+    </div>
+  </footer>
+
+  <template id="coupon-template">
+    <div class="coupon">
+      <div class="coupon-top">
+        <span class="coupon-hero"></span>
+        <span class="coupon-title"></span>
+      </div>
+      <p class="coupon-desc"></p>
+      <button class="coupon-btn">Copy Code</button>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

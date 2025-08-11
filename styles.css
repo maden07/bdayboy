@@ -1,0 +1,119 @@
+/* Fonts: Bangers (titles), Open Sans (body) */
+:root{
+  --bg:#0d0f14;
+  --panel:#101826;
+  --panel2:#0b1220;
+  --ink:#eef2ff;
+  --accent:#ff2244;
+  --accent2:#ffd400;
+  --muted:#90a4c0;
+  --success:#28d17c;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 20% -10%, #1b2233 0%, transparent 60%),
+              radial-gradient(1200px 600px at 120% 10%, #162238 0%, transparent 60%),
+              var(--bg);
+  color:var(--ink);
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Layout */
+.container{max-width:1100px; margin:0 auto; padding:0 16px}
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(13,15,20,.8); backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.logo{font-family:'Bangers', cursive; letter-spacing:.5px; margin:0; font-size:32px; color:var(--accent2); text-shadow:2px 2px 0 #000}
+.nav{display:flex; gap:10px; flex-wrap:wrap}
+.nav-btn{
+  background:#1c2537; border:1px solid rgba(255,255,255,.08); color:var(--ink); padding:8px 12px;
+  border-radius:999px; cursor:pointer; font-weight:600
+}
+.nav-btn:hover{background:#243148}
+.screen{display:none; padding:28px 0}
+.screen.active{display:block}
+
+.site-footer{border-top:1px solid rgba(255,255,255,.08); margin-top:24px; padding:16px 0; text-align:center; color:var(--muted)}
+
+/* Hero */
+.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:20px; align-items:center}
+.hero-text h2{font-family:'Bangers', cursive; font-size:44px; margin:0 0 8px}
+.features{display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; padding:0; margin:14px 0 0; list-style:none; color:var(--muted)}
+.cta-row{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap}
+.cta{background:var(--accent); color:#fff; border:0; padding:10px 16px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow:0 6px 0 #8a0e20}
+.cta:active{transform:translateY(2px); box-shadow:0 4px 0 #8a0e20}
+.cta.secondary{background:#2a66f6; box-shadow:0 6px 0 #13398f}
+.cta.ghost{background:transparent; border:2px solid rgba(255,255,255,.2); box-shadow:none}
+.hero-art{position:relative; height:260px; border-radius:20px; background:linear-gradient(145deg,#102039,#08131f); display:grid; place-items:center; overflow:hidden; border:1px solid rgba(255,255,255,.06)}
+.burst{font-size:84px; filter:drop-shadow(0 4px 8px rgba(0,0,0,.4))}
+.pow,.bam{position:absolute; font-family:'Bangers', cursive; color:var(--accent2); font-size:42px; transform:rotate(-12deg); text-shadow:2px 2px 0 #000}
+.pow{top:16px; left:16px}
+.bam{bottom:16px; right:16px}
+
+/* Panels & Cards */
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px; box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.panel-title{font-family:'Bangers', cursive; letter-spacing:.5px; font-size:32px; margin:0}
+.panel-sub{margin:6px 0 16px; color:var(--muted)}
+.card{background:#0c1526; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:16px}
+.q-meta{display:flex; justify-content:space-between; color:var(--muted); font-size:14px}
+.q-text{margin:12px 0 16px}
+.choices{display:grid; gap:10px}
+.choice-btn{
+  width:100%; text-align:left; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:#0f1b2f; color:var(--ink); font-weight:600; cursor:pointer
+}
+.choice-btn:hover{background:#12203a}
+.choice-btn.correct{background:rgba(40,209,124,.16); border-color:var(--success)}
+.choice-btn.wrong{background:rgba(255,34,68,.16); border-color:var(--accent)}
+.actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+.actions.center{justify-content:center}
+.result-msg{margin:12px 0 0; color:var(--accent2); font-weight:700}
+
+/* Wheel */
+.wheel-wrap{position:relative; width:min(420px, 90vw); aspect-ratio:1/1; margin:10px auto 14px}
+#wheel-needle{position:absolute; top:-24px; left:50%; transform:translateX(-50%); font-size:20px; color:var(--accent2); text-shadow:0 1px 0 #000}
+#wheel-board{
+  width:100%; height:100%; border-radius:50%;
+  background:conic-gradient(#ff2244 0 45deg, #2a66f6 45deg 90deg, #ffd400 90deg 135deg, #28d17c 135deg 180deg, #ff7a00 180deg 225deg, #9b59b6 225deg 270deg, #00c2d7 270deg 315deg, #f39c12 315deg 360deg);
+  border:10px solid #0b1220;
+  box-shadow:inset 0 0 0 4px rgba(255,255,255,.1), 0 10px 30px rgba(0,0,0,.4);
+  transition:transform 5s cubic-bezier(.22,.61,.36,1);
+}
+.wheel-wrap::after{
+  content:""; position:absolute; inset:16%; border-radius:50%; border:2px dashed rgba(255,255,255,.2)
+}
+.wheel-labels{
+  position:absolute; inset:0; display:grid; place-items:center; pointer-events:none;
+}
+.wheel-labels span{position:absolute; font-weight:700; color:#000; text-shadow:0 1px 2px rgba(255,255,255,.7)}
+.center{text-align:center}
+
+/* Coupons */
+.coupon-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px}
+.coupon{
+  background:linear-gradient(145deg, #152035, #0d1526);
+  border:1px dashed rgba(255,255,255,.18);
+  border-radius:16px; padding:14px; position:relative; overflow:hidden;
+}
+.coupon::after{
+  content:""; position:absolute; inset:-30% -30%; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,.06), transparent 60%);
+}
+.coupon-top{display:flex; align-items:center; gap:8px; margin-bottom:6px}
+.coupon-hero{
+  display:inline-grid; place-items:center; width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,.1); font-size:18px
+}
+.coupon-title{font-weight:800; letter-spacing:.2px}
+.coupon-desc{color:var(--muted); font-size:14px; margin:4px 0 10px}
+.coupon-btn{width:100%; padding:10px; border-radius:10px; border:0; background:var(--accent2); color:#000; font-weight:800; cursor:pointer}
+.coupon-btn:active{transform:translateY(1px)}
+
+@media (max-width: 820px){
+  .hero{grid-template-columns:1fr; gap:14px}
+  .hero-art{height:180px}
+}
