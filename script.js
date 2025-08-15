@@ -89,14 +89,14 @@ renderQuestion();
 
 // ---------------- WHEEL ----------------
 const rewards = [
-  {label:"Cap's Day Off Mission", note:"I'll drive to one spot hehe"},
-  {label:"Hulk Smash Hunger", note:"Free meal of your choice (within budget pls)"},
-  {label:"Spider-Man Web of Comfort", note:"Unlimited hugs or kisses"},
-  {label:"Stark Industries VIP Pass", note:"You pick what we do for a day (budget friendly again)"},
-  {label:"Thor's Worthy Treatment", note:"Royal massage from yours truly hehe"},
-  {label:"Thanos Infinity Power", note:"Make any wish (be kind!)"},
-  {label:"Movie Night Takeover", note:"You pick the lineup"},
-  {label:"Dessert Raid", note:"Late-night sweets run (i'm not driving)"}
+  {label:"Cap's Day Off Mission", note:"I do one assignment for free hehe)"},
+  {label:"Hulk Smash Hunger", note:"Free meal of your choice (after the trip)"},
+  {label:"Spider-Man Web of Comfort", note:"U get hugs n kisses me from me muhahaha"},
+  {label:"Stark Industries VIP Pass", note:"You pick what we do for a day (budget friendly again and after the trip)"},
+  {label:"Thor's Worthy Treatment", note:"Royal massage from yours truly hehe "},
+  {label:"Thanos Infinity Power", note:"Make any wish (dont be freaky)"},
+  {label:"Movie Night Takeover", note:"You pick the next movie"},
+  {label:"Pink Pass", note:"I drive to one spot (excluding this trip... unless further notice)."}
 ];
 const wheel = document.getElementById('wheel-board');
 const spinBtn = document.getElementById('spin-btn');
@@ -133,14 +133,14 @@ const shuffleBtn = document.getElementById('shuffle-coupons');
 const addCouponBtn = document.getElementById('add-coupon');
 
 let coupons = [
-  {hero:'🇺🇸', title:"Cap's Day Off Mission", desc:"I do one homework for free hehe.", code:"CAP-FREEDOM-DAY"},
-  {hero:'💚', title:"Hulk Smash Hunger", desc:"One free meal of your choice.", code:"HULK-FEED-ME"},
-  {hero:'🕷️', title:"Web of Comfort", desc:"Unlimited hugs + cuddle pass.", code:"SPIDEY-HUGS"},
-  {hero:'🤖', title:"Stark Industry VIP Pass", desc:"You pick what we do for a day (budget friendly again.", code:"IRON-TECH-UP"},
-  {hero:'⚡', title:"Worthy Treatment", desc:"A royal massage session.", code:"THOR-MASSAGE"},
+  {hero:'🇺🇸', title:"Cap's Day Off Mission", desc:"I do one assignment for free.", code:"CAP-FREEDOM-DAY"},
+  {hero:'💚', title:"Hulk Smash Hunger", desc:"Free meal of your choice (after the trip)", code:"HULK-FEED-ME"},
+  {hero:'🕷️', title:"Web of Comfort", desc:"u get hugs n kisses me from me muhahah.", code:"SPIDEY-HUGS"},
+  {hero:'🤖', title:"Stark Industry VIP Pass", desc:"You pick what we do for a day (budget friendly again and after the trip)", code:"IRON-TECH-UP"},
+  {hero:'⚡', title:"Worthy Treatment", desc:"Royal massage from yours truly hehe ", code:"THOR-MASSAGE"},
   {hero:'💎', title:"Infinity Power", desc:"Make any wish come true.", code:"THANOS-WISH"},
-  {hero:'🎬', title:"Movie Night Takeover", desc:"You pick the lineup.", code:"AVENGERS-CINEMA"},
-  {hero:'🍰', title:"Dessert Raid", desc:"Late‑night sweets run.", code:"DESSERT-ASSEMBLE"}
+  {hero:'🎬', title:"Movie Night Takeover", desc:"You pick the next movie.", code:"AVENGERS-CINEMA"},
+  {hero:'💗', title:"PinkPass", desc:"I drive to one spot (excluding this trip... unless further notice).", code:"DESSERT-ASSEMBLE"}
 ];
 function renderCoupons(){
   couponGrid.innerHTML = '';
